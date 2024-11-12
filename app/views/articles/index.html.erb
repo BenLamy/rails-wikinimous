@@ -1,0 +1,15 @@
+<h1>My Articles</h1>
+ <ul>
+  <% @articles.each do |article| %>
+    <li>
+      <h3><%= link_to article.title, article_path(article) %></h3>
+      <%= article.content[0..30].gsub(/\s\w+\s*$/, '...') %>
+      <%#= link_to "Delete",
+        article_path(article),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-warning' %>
+    </li>
+  <% end %>
+ </ul>
+
+
+<%= link_to "New article", new_article_path, class: 'btn btn-primary' %>
